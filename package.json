@@ -1,0 +1,13 @@
+{
+  "name": "lamassu-test-suite",
+  "version": "1.0.0",
+  "description": "End-to-end test suite for lamassu-machine and lamassu-server",
+  "main": "index.js",
+  "repository": "git@github.com:lamassu/lamassu-test-suite.git",
+  "author": "Josh Harvey <josh@lamassu.is>",
+  "license": "Unlicense",
+  "dependencies": {
+    "chromedriver": "^2.26.1",
+    "nightwatch": "^0.9.11"
+  }
+}
