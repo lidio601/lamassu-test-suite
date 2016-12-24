@@ -17,6 +17,8 @@ module.exports = {
       .waitForElementVisible('#completed_viewport', 10000)
       .click('body')
       .waitForElementVisible('#cash-in', 10000)
+      .click('#want_cash')
+      .waitForElementVisible('.choose_fiat_state', 10000)
       .end()
   }
 }
