@@ -1,8 +1,7 @@
 module.exports = {
-  'Demo test': browser => {
+  'Cash-in test': browser => {
     browser
       .url(browser.globals.startUrl)
-      .loadMachine()
       .waitForElementVisible('#cash-in', 10000)
       .assert.containsText('#cash-in', 'CASH\nIN')
       .click('#cash-in')
