@@ -3,7 +3,7 @@
   "output_folder" : "reports",
   "custom_commands_path" : "commands",
   "custom_assertions_path" : "",
-  "page_objects_path" : "",
+  "page_objects_path" : "pages",
   "globals_path" : "nightwatch-globals.js",
   "selenium" : {
     "start_process" : false

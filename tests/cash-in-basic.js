@@ -1,23 +1,34 @@
 module.exports = {
   'Cash-in test': browser => {
+    const main = browser.page.main()
+    const twoWay = main.section.twoWay
+    const insertMoreBills = main.section.insertMoreBills
+
+    main
+    .navigate()
+    .waitForElementVisible(twoWay.selector, 10000)
+
+    twoWay.click('@cashIn')
+
     browser
-      .url(browser.globals.startUrl)
-      .waitForElementVisible('#cash-in', 10000)
-      .assert.containsText('#cash-in', 'CASH\nIN')
-      .click('#cash-in')
-      .waitForElementVisible('#insert-bill', 5000)
-      .insertBill(1)
-      .waitForElementVisible('.send-coins .js-send-crypto-enable', 5000)
-      .pause(1000)
-      .insertBill(5)
-      .waitForElementVisible('.send-coins .js-send-crypto-disable', 5000)
-      .waitForElementVisible('.send-coins .js-send-crypto-enable', 5000)
-      .click('#send-coins')
-      .waitForElementVisible('#completed_viewport', 10000)
-      .click('body')
-      .waitForElementVisible('#cash-in', 10000)
-      .click('#want_cash')
-      .waitForElementVisible('.choose_fiat_state', 10000)
-      .end()
+    .waitForElementVisible(main.section.insertBills.selector, 5000)
+    .insertBill(1)
+
+    insertMoreBills
+    .waitForElementVisible('@sendEnabled', 5000)
+
+    browser.pause(1000)
+
+    insertMoreBills
+    .insertBill(5)
+    .waitForElementVisible('@sendDisabled', 5000)
+    .waitForElementVisible('@sendEnabled', 5000)
+    .click('@sendCoins')
+
+    browser
+    .waitForElementVisible(main.section.completed.selector, 10000)
+    .click('body')
+    .waitForElementVisible(twoWay.selector, 10000)
+    .end()
   }
 }
