@@ -1,10 +1,12 @@
 #!/usr/bin/env node
 
 const fs = require('fs')
+const path = require('path')
+const untildify = require('untildify')
 
 const argv = process.argv
 
-const lmPath = argv[2]
+const lmPath = path.resolve(__dirname, '..', untildify(argv[2]))
 
 if (!lmPath) {
   console.error('config <full path to lamassu-machine>')
@@ -18,7 +20,7 @@ if (!fs.existsSync(lmPath)) {
 }
 
 fs.writeFileSync('user-config.json', JSON.stringify({
-  lamassuMachinePath: argv[2]
+  lamassuMachinePath: lmPath
 }))
 
 console.log('Success. You can now run nightwatch.')
