@@ -10,7 +10,7 @@ module.exports = {
   after: function (done) {
     chromedriver.stop()
     done()
-    // process.exit(0)
+    process.exit(0)
   },
   beforeEach: done => {
     spawner.run()
