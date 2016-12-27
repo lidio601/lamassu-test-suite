@@ -19,5 +19,6 @@ module.exports = {
   afterEach: done => {
     spawner.kill().then(done)
   },
-  startUrl: userGlobals.startUrl
+  startUrl: userGlobals.startUrl,
+  waitForConditionTimeout: 5000
 }

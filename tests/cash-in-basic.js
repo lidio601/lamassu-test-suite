@@ -11,18 +11,23 @@ module.exports = {
     twoWay.click('@cashIn')
 
     browser
-    .waitForElementVisible(main.section.insertBills.selector, 5000)
+    .waitForElementVisible(main.section.insertBills.selector)
     .insertBill(1)
 
-    insertMoreBills
-    .waitForElementVisible('@sendEnabled', 5000)
+    main.section.insertBills.waitForElementVisible('@processing')
+    .assert.containsText('@processing', 'Processing $1...')
 
-    browser.pause(1000)
+    insertMoreBills
+    .waitForElementVisible('@sendEnabled')
+
+    browser.pause(2000)
 
     insertMoreBills
     .insertBill(5)
-    .waitForElementVisible('@sendDisabled', 5000)
-    .waitForElementVisible('@sendEnabled', 5000)
+    .waitForElementVisible('@sendDisabled')
+    .waitForElementVisible('@sendEnabled')
+    .waitForElementVisible('@processing')
+    .assert.containsText('@processing', 'You inserted a $5 bill')
     .click('@sendCoins')
 
     browser
