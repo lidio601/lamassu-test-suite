@@ -10,6 +10,8 @@ module.exports = {
       .click('.cash-button:nth-child(2)')
       .pause(100)
       .assert.containsText('.choose_fiat_state .sums .fiat .fiat-amount', '15')
+      .click('#cash-out-button')
+      .pause(5000)
       .end()
   }
 }
