@@ -6,6 +6,9 @@
   "repository": "git@github.com:lamassu/lamassu-test-suite.git",
   "author": "Josh Harvey <josh@lamassu.is>",
   "license": "Unlicense",
+  "bin": {
+    "config": "./bin/config.js"
+  },
   "dependencies": {
     "chromedriver": "^2.26.1",
     "nightwatch": "^0.9.11"
