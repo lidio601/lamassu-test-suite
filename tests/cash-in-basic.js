@@ -4,6 +4,9 @@ module.exports = {
     const twoWay = main.section.twoWay
     const insertMoreBills = main.section.insertMoreBills
 
+    browser
+    .resizeWindow(1280, 1000)
+
     main
     .navigate()
     .waitForElementVisible(twoWay.selector, 10000)
