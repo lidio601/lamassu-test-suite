@@ -1,6 +1,6 @@
 {
   "name": "lamassu-test-suite",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "End-to-end test suite for lamassu-machine and lamassu-server",
   "main": "index.js",
   "repository": "git@github.com:lamassu/lamassu-test-suite.git",
