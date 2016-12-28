@@ -9,8 +9,8 @@ const argv = process.argv
 const lmPath = path.resolve(__dirname, '..', untildify(argv[2]))
 
 if (!lmPath) {
-  console.error('config <full path to lamassu-machine>')
-  console.error('ex: node bin/config.js /Users/josh/projects/lamassu-machine')
+  console.error('config <path to lamassu-machine>')
+  console.error('ex: node bin/config.js ~/projects/lamassu-machine')
   process.exit(1)
 }
 

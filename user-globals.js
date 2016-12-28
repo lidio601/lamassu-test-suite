@@ -4,5 +4,5 @@ const userConfig = require('./user-config.json')
 const lamassuMachinePath = userConfig.lamassuMachinePath
 
 module.exports = {
-  startUrl: 'file://' + path.resolve(lamassuMachinePath, 'ui', 'start.html')
+  startUrl: 'file://' + path.resolve(lamassuMachinePath, 'ui', 'start-test.html')
 }
