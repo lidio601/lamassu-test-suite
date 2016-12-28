@@ -7,34 +7,38 @@ module.exports = {
     main
     .resize()
     .navigate()
-    .waitForElementVisible(twoWay.selector, 10000)
+    .expect.element(twoWay.selector).to.be.visible
 
     twoWay.click('@cashIn')
 
-    browser
-    .waitForElementVisible(main.section.insertBills.selector)
+    main
+    .expect.element(main.section.insertBills.selector).to.be.visible.before()
+
+    main
     .insertBill(1)
 
-    main.section.insertBills.waitForElementVisible('@processing')
-    .assert.containsText('@processing', 'Processing $1...')
+    main.section.insertBills.expect.element('@processing').to.be.visible
+    main.section.insertBills.expect.element('@processing').text.to.equal('Processing $1...')
 
     insertMoreBills
-    .waitForElementVisible('@sendEnabled')
+    .expect.element('@sendEnabled').to.be.visible
 
     browser.pause(2000)
 
     insertMoreBills
     .insertBill(5)
-    .waitForElementVisible('@sendDisabled')
-    .waitForElementVisible('@sendEnabled')
-    .waitForElementVisible('@processing')
-    .assert.containsText('@processing', 'You inserted a $5 bill')
-    .click('@sendCoins')
+    .expect.element('@sendDisabled').to.be.visible.before()
 
-    browser
-    .waitForElementVisible(main.section.completed.selector, 10000)
-    .click('body')
-    .waitForElementVisible(twoWay.selector, 10000)
-    .end()
+    insertMoreBills.expect.element('@sendEnabled').to.be.visible.before()
+    insertMoreBills.expect.element('@processing').to.be.visible.before()
+
+    insertMoreBills.expect.element('@processing').text.to.equal('You inserted a $5 bill')
+    insertMoreBills.click('@sendCoins')
+
+    main.expect.element(main.section.completed.selector).to.be.visible.before()
+    main.click('body')
+    main.expect.element(twoWay.selector).to.be.visible.before()
+
+    browser.end()
   }
 }
