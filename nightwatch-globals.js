@@ -4,7 +4,7 @@ const spawner = require('./lib/spawner')
 
 module.exports = {
   before: function (done) {
-    chromedriver.start()
+    chromedriver.start(['--verbose', '--log-path=chrome.log'])
     done()
   },
   after: function (done) {

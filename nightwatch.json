@@ -15,9 +15,7 @@
       "default_path_prefix" : "",
       "desiredCapabilities": {
         "browserName": "chrome",
-        "chromeOptions" : {
-          "args" : ["--no-sandbox"]
-        },
+        "loggingPrefs": {"driver": "ALL", "server": "OFF", "browser": "ALL"},
         "acceptSslCerts": true
       }
     }
