@@ -3,6 +3,8 @@ module.exports = {
     const main = browser.page.main()
     const twoWay = main.section.twoWay
 
+    browser.loadMachine()
+
     main
     .resize()
     .navigate()
@@ -53,6 +55,7 @@ module.exports = {
 
     main.expect.element(twoWay.selector).to.be.visible.before()
 
+    browser.killMachine()
     browser.end()
   }
 }

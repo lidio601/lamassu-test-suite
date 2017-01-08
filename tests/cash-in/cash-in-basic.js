@@ -4,6 +4,8 @@ module.exports = {
     const twoWay = main.section.twoWay
     const insertMoreBills = main.section.insertMoreBills
 
+    browser.loadMachine({live: true})
+
     main
     .resize()
     .navigate()
@@ -39,6 +41,7 @@ module.exports = {
     main.click('body')
     main.expect.element(twoWay.selector).to.be.visible.before()
 
+    browser.killMachine()
     browser.end()
   }
 }
