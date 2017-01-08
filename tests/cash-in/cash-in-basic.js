@@ -4,7 +4,7 @@ module.exports = {
     const twoWay = main.section.twoWay
     const insertMoreBills = main.section.insertMoreBills
 
-    browser.loadMachine({live: true})
+    browser.loadMachine()
 
     main
     .resize()
