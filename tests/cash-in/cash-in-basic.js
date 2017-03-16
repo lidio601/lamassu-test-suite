@@ -1,4 +1,8 @@
 module.exports = {
+  after: browser => {
+    browser.killMachine()
+    browser.end()
+  },
   'Cash-in test': browser => {
     const main = browser.page.main()
     const twoWay = main.section.twoWay
@@ -40,8 +44,5 @@ module.exports = {
     main.expect.element(main.section.completed.selector).to.be.visible.before()
     main.click('body')
     main.expect.element(twoWay.selector).to.be.visible.before()
-
-    browser.killMachine()
-    browser.end()
   }
 }
