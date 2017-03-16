@@ -21,7 +21,7 @@ module.exports = {
     main.click('.cash-button:nth-child(2)')
 
     main.expect.element('.choose_fiat_state .sums .fiat .fiat-amount').text.to.be.equal('25').before()
-    main.expect.element('#js-i18n-choose-digital-amount').text.to.be.equal("You'll be sending 26.50 mBTC")
+    main.expect.element('#js-i18n-choose-digital-amount').text.to.be.equal("You'll be sending 26.250 mBTC")
 
     main.click('#cash-out-button')
 
@@ -33,21 +33,18 @@ module.exports = {
     main.click('#phone-keypad .enter-plus')
 
     main.expect.element('.security_code_state').to.be.visible.before()
+    browser.pause(1000)
 
     main.click('#security-keypad .key1')
     main.click('#security-keypad .key2')
     main.click('#security-keypad .key3')
-    main.click('#security-keypad .key4')
-    main.click('#security-keypad .key5')
-    main.click('#security-keypad .key6')
     main.click('#security-keypad .enter')
 
     main.expect.element('.waiting_state').to.be.visible.before()
 
     main.expect.element('#qr-code-deposit').to.be.visible.before()
-    main.expect.element('.deposit_state .crypto-address').text.to.be.equal('1Lop3EGdaY6nmBr7LqvXgmMwjN961mjWib').before()
-
-    main.expect.element('.deposit_state .digital .amount').text.to.be.equal('26.50 mBTC').before()
+    main.expect.element('.deposit_state .crypto-address').text.to.be.equal("<Fake address, don't send>").before()
+    main.expect.element('.deposit_state .digital .amount').text.to.be.equal('26.250 mBTC').before()
     main.expect.element('.deposit_state .sums .fiat .amount').text.to.be.equal('25 USD').before()
 
     main.expect.element('.redeem_later_state').to.be.visible.before()

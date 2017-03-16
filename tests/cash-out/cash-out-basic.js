@@ -1,9 +1,13 @@
 module.exports = {
+  after: browser => {
+    browser.killMachine()
+    browser.end()
+  },
   'Cash-out test': browser => {
     const main = browser.page.main()
     const twoWay = main.section.twoWay
 
-    browser.loadMachine()
+    browser.loadMachine({live: true, fixture: 'two-way-btc'})
 
     main
     .resize()
@@ -34,8 +38,5 @@ module.exports = {
     main.expect.element('.fiat_complete_state').to.be.visible.before()
     main.click('body')
     main.expect.element(twoWay.selector).to.be.visible.before()
-
-    browser.killMachine()
-    browser.end()
   }
 }
