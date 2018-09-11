@@ -39,3 +39,4 @@ jspm_packages
 user-config.json
 reports/
 .vscode/
+.idea/
